@@ -12,11 +12,5 @@ public class ClienteEstudante extends Cliente{
         this.conta = new ContaPoupanca();
     }
 
-    @Override
-    public void setConta() {
-        if(this.conta == null){
-            this.conta = new ContaPoupanca();
-        }
-    }
 
 }

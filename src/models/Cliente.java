@@ -22,7 +22,6 @@ public abstract class Cliente {
         this.id = (int) (1 + (Math.random() * 100001));
     }
 
-    public abstract void setConta();
 
     public String getNome() {
         return nome;

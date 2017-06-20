@@ -10,12 +10,6 @@ public class ClientePremium extends Cliente {
         super(nome, cpf, year, month, day);
         this.conta = new ContaCorrente();
     }
-
-    @Override
-    public void setConta() {
-        if(this.conta == null){
-            conta = new ContaCorrente();
-        }
-    }
+    
 
 }
