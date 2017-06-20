@@ -10,7 +10,6 @@ public abstract class Cliente {
     private String nome;
     private String cpf;
     private int id;
-    private double limite;
     private Date dataNascimento;
     protected Conta conta;
     private String userName;
@@ -20,12 +19,10 @@ public abstract class Cliente {
         this.dataNascimento = new Date(year, month, day);
         this.nome = nome;
         this.cpf = cpf;
-        this.id = (int) (1 + (Math.random() * 10001));
+        this.id = (int) (1 + (Math.random() * 100001));
     }
 
-    public void setDataNascimento(int year, int month, int day) {
-        this.dataNascimento.setDate(year, month, day);
-    }
+    public abstract void setConta();
 
     public String getNome() {
         return nome;
@@ -36,17 +33,16 @@ public abstract class Cliente {
     }
 
     public Conta getConta() {
-        return conta;
+        return this.conta;
     }
-
-    public abstract void setConta();
 
     public int getId() {
         return this.id;
     }
 
-    public abstract double getLimite();
-
+    public void setDataNascimento(int year, int month, int day) {
+        this.dataNascimento.setDate(year, month, day);
+    }
 
     public Date getDataNascimento() {
         return dataNascimento;

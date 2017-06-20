@@ -18,8 +18,4 @@ public class ClientePremium extends Cliente {
         }
     }
 
-    @Override
-    public double getLimite() {
-        return 0;
-    }
 }
