@@ -1,8 +1,6 @@
 package models;
 
-/**
- * Created by daviv on 19/06/2017.
- */
+
 public class ContaPoupanca extends Conta {
 
     private double jurosPoupanca = 0.05;

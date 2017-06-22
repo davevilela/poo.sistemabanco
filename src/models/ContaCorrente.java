@@ -1,8 +1,6 @@
 package models;
 
-/**
- * Created by daviv on 19/06/2017.
- */
+
 public class ContaCorrente extends Conta{
 
     private double limite = 16000;

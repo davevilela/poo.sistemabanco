@@ -1,8 +1,6 @@
 package models;
 
-/**
- * Created by daviv on 19/06/2017.
- */
+
 public class ClientePremium extends Cliente {
 
 
@@ -10,6 +8,11 @@ public class ClientePremium extends Cliente {
         super(nome, cpf, year, month, day);
         this.conta = new ContaCorrente();
     }
-    
+
+    @Override
+    public Conta getConta() {
+       return (ContaCorrente) this.conta;
+    }
+
 
 }

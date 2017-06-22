@@ -1,14 +1,12 @@
 package models;
 
-/**
- * Created by daviv on 19/06/2017.
- */
-public abstract class Conta {
+
+public abstract class Conta implements IConta {
 
     protected String numero;
     protected double saldo;
     protected int id;
-    protected double senha;
+    protected String senha;
     protected int contadorOperacoes = 0;
 
     public Conta(){
@@ -29,8 +27,8 @@ public abstract class Conta {
         return saldo;
     }
 
-    public boolean auth(double senha){
-        if(senha == this.senha){
+    public boolean auth(String senha){
+        if(this.senha.equals(senha)){
             return true;
         }
         return false;

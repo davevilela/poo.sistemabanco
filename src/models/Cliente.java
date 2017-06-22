@@ -2,16 +2,15 @@ package models;
 
 import util.Date;
 
-/**
- * Created by daviv on 19/06/2017.
- */
+
 public abstract class Cliente {
 
     private String nome;
     private String cpf;
+    private Endereco endereco;
     private int id;
     private Date dataNascimento;
-    protected Conta conta;
+    protected IConta conta;
     private String userName;
 
 
@@ -23,16 +22,14 @@ public abstract class Cliente {
     }
 
 
+    public abstract Conta getConta();
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Conta getConta() {
-        return this.conta;
     }
 
     public int getId() {
@@ -46,4 +43,9 @@ public abstract class Cliente {
     public Date getDataNascimento() {
         return dataNascimento;
     }
+
+    public String getUserName(){
+        return this.userName;
+    }
 }
+

@@ -1,24 +1,19 @@
 package controllers;
 
+import exceptions.ClienteException;
+import exceptions.LoginException;
 import models.*;
 
-/**
- * Created by daviv on 19/06/2017.
- */
-public class OperacoesControllerCC extends OperacoesController{
+
+public class OperacoesControllerCC extends ContaController {
 
 
-    ContaCorrente c;
-
-    public OperacoesControllerCC(ContaCorrente c){
-        this.c = c;
+    public OperacoesControllerCC(String username, String psswrd) throws LoginException, ClienteException {
+        super(username, psswrd);
     }
 
-
-
     public boolean pagarFatura(){
-        c.calculaTotalFinanciado();
-        if((c.getTotalFinanciado() != 0) && (c.getTotalFinanciado() < c.getSaldo())){
+        if((conta.getTotalFinanciado() != 0) && (conta.getTotalFinanciado() < conta.getSaldo())){
             double valor = (c.getSaldo() - c.getTotalFinanciado());
             c.setSaldo(valor);
             c.setTotalFinanciado(0);

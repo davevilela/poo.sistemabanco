@@ -6,7 +6,7 @@ import models.ContaPoupanca;
 /**
  * Created by daviv on 19/06/2017.
  */
-public class OperacoesControllerCP extends OperacoesController {
+public class OperacoesControllerCP extends ContaController {
 
     ContaPoupanca c;
 

@@ -1,7 +1,5 @@
 package views;
-import controllers.CadastroController;
-import models.Cliente;
-import models.ClientePremium;
+import controllers.ClientesController;
 
 import java.util.Scanner;
 /**
@@ -10,7 +8,7 @@ import java.util.Scanner;
 public class MainMenu {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        CadastroController cadastro;
+        ClientesController cadastro;
         System.out.print("O que deseja fazer?");
         int opt = scan.nextInt();
 
@@ -19,7 +17,7 @@ public class MainMenu {
                 String nome = scan.nextLine();
                 String cpf = scan.nextLine();
 
-               cadastro = new CadastroController();
+               cadastro = new ClientesController();
 
         }
 
