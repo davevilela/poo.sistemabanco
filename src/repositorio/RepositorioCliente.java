@@ -24,12 +24,12 @@ public class RepositorioCliente implements IRepositorioCliente {
     }
 
     @Override
-    public void inserirCliente(Cliente c) throws ClienteException {
+    public void inserirCliente(Cliente c){
         clientes.add(c);
     }
 
     @Override
-    public Cliente procurarCliente(String username) throws ClienteException {
+    public Cliente procurarCliente(String username){
         for(Cliente c : clientes){
             if(c.getUserName().equals(username)){
                 return c;
@@ -38,8 +38,20 @@ public class RepositorioCliente implements IRepositorioCliente {
         return null;
     }
 
+
+
     @Override
-    public void removerCliente(Cliente c) throws ClienteException {
+    public void removerCliente(Cliente c){
         clientes.remove(c);
+    }
+
+    @Override
+    public boolean clienteExists(String username) {
+        for(Cliente c : clientes){
+            if(c.getUserName().equals(username)){
+                return true;
+            }
+        }
+        return false;
     }
 }

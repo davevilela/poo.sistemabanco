@@ -12,4 +12,5 @@ public interface IClientesController {
     public void removerCliente(Cliente c) throws ClienteException;
     public Cliente procurarCliente(String username) throws ClienteException;
     public Cliente logInCliente(String userName, String psswrd) throws LoginException, ClienteException;
+    public boolean clienteExists(String username);
 }

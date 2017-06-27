@@ -43,6 +43,7 @@ public class ClientesController implements IClientesController {
         }
     }
 
+
     @Override
     public Cliente logInCliente(String userName, String psswrd) throws LoginException, ClienteException {
         Cliente c = repositorio.procurarCliente(userName);
@@ -56,6 +57,14 @@ public class ClientesController implements IClientesController {
             throw new LoginException("Senha Incorreta!");
         }
         throw new LoginException("Dados Incorretos!");
+    }
+
+    @Override
+    public boolean clienteExists(String username) {
+        boolean result;
+        if (repositorio.clienteExists(username)) result = true;
+        else result = false;
+        return result;
     }
 
     @Override

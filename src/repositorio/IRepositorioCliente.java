@@ -8,7 +8,8 @@ import models.Cliente;
  */
 public interface IRepositorioCliente {
 
-    public void inserirCliente(Cliente c) throws ClienteException;
-    public Cliente procurarCliente(String username) throws ClienteException;
-    public void removerCliente(Cliente c) throws ClienteException;
+    public void inserirCliente(Cliente c);
+    public Cliente procurarCliente(String username);
+    public void removerCliente(Cliente c);
+    public boolean clienteExists(String username);
 }

@@ -8,6 +8,7 @@ public class ClienteEstudante extends Cliente{
     public ClienteEstudante(String nome, String cpf, int year, int month, int day) {
         super(nome, cpf, year, month, day);
         this.conta = new ContaPoupanca();
+        tipoConta = "estudante";
     }
 
     @Override

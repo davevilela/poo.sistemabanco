@@ -1,8 +1,8 @@
 package models;
 
-/**
- * Created by daviv on 22/06/2017.
- */
+
+
+
 public class Endereco {
 
     private String rua;

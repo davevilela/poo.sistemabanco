@@ -1,6 +1,8 @@
 package models;
 
 
+import exceptions.OperacaoException;
+
 public class ContaCorrente extends Conta{
 
     private double limite = 16000;
@@ -24,13 +26,48 @@ public class ContaCorrente extends Conta{
         this.saldo += valor;
     }
 
-    public void setLimiteTotal(double valor){
-        this.limiteTotal = valor;
+    @Override
+    public void updateContadorOperacoes() {
+        if(this.getContadorOperacoes() % 5 == 0){
+            this.setSaldo(this.getSaldo() - 0.10);
+        }
     }
 
-    public double getLimiteTotal(){
-        return this.limiteTotal;
+    @Override
+    public boolean saque(double valor) throws OperacaoException {
+        this.updateContadorOperacoes();
+        if(this.getSaldo() >= valor){
+            double valorSaque = (this.getSaldo() - valor);
+            this.setSaldo(valorSaque);
+            this.setContadorOperacoes();
+            return true;
+        }else if(this.getSaldo() < valor){
+            if(this.getLimite() > valor){
+                double valorSaque = (this.getSaldo() - valor);
+                this.setSaldo(valorSaque);
+                double valorLimite = (this.getLimite() + this.getSaldo());
+                this.setLimite(valorLimite);
+                this.setContadorOperacoes();
+                return true;
+            }
+        }
+        throw new OperacaoException("Saldo inválido. Operação cancelada.");
     }
+
+    @Override
+    public boolean deposito(double valor) throws OperacaoException {
+        if(valor > 0){
+            this.setSaldo(valor);
+            return true;
+        }
+        throw new OperacaoException("Valor inválido. Tente novamente.");
+    }
+
+    @Override
+    public boolean transferencia(double valor, String destino) {
+        return false;
+    }
+
 
     public double getLimite() {
         return limite;
@@ -38,6 +75,14 @@ public class ContaCorrente extends Conta{
 
     public void setLimite(double limite) {
         this.limite = limite;
+    }
+
+    public void setLimiteTotal(double valor){
+        this.limiteTotal = valor;
+    }
+
+    public double getLimiteTotal(){
+        return this.limiteTotal;
     }
 
     public void calculaTotalFinanciado(){

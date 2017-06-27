@@ -1,5 +1,6 @@
 package models;
 
+import controllers.IContaController;
 import util.Date;
 
 
@@ -10,9 +11,9 @@ public abstract class Cliente {
     private Endereco endereco;
     private int id;
     private Date dataNascimento;
-    protected IConta conta;
+    protected Conta conta;
     private String userName;
-
+    public String tipoConta;
 
     public Cliente(String nome, String cpf, int year, int month, int day){
         this.dataNascimento = new Date(year, month, day);
@@ -46,6 +47,10 @@ public abstract class Cliente {
 
     public String getUserName(){
         return this.userName;
+    }
+
+    public void setUserName(String userName){
+        this.userName = userName;
     }
 }
 
