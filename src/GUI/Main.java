@@ -156,6 +156,7 @@ public class Main {
 
         try{
             c = f.logInCliente(username, psswrd);
+            f.setConta(c.getConta());
         }catch (ClienteException e){
             e.getMessage();
         }catch (LoginException e){
